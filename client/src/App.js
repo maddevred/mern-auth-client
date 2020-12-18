@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
-import setAuthToken from './utils/setAuthToken';
+import setAuthToken from './components/setAuthToken';
 
 import './App.css';
 
@@ -52,13 +52,17 @@ function App() {
 
   return (
     <div className="App">
-    <Welcome />
-    <About />
-    <Footer />
-    <Navbar handleLogout={handleLogout} isAuth={isAuthenticated} />
-    <Login />
-    <Profile />
-    <Signup />
+      <Navbar handleLogout={handleLogout} isAuth={isAuthenticated} />
+      <div>
+        <Switch>
+          <Route path='/signup' component={Signup} />
+          <Route path='/login' render={ (props) => <Login {...props} nowCurrentUser={nowCurrentUser} setIsAuthenticated={setIsAuthenticated} user={currentUser}/>} />
+          <Route path='/about' component={About} />
+          <PrivateRoute path="/profile" component={Profile} user={currentUser} />
+          <Route exact path="/" component={Welcome} />
+        </Switch>
+      </div>
+      <Footer />
     </div>
   );
 }
