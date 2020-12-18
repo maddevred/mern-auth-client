@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Navbar = () => {
+const Signup = () => {
     return (
         <div>
-            <h1>Navbar</h1>
-            <p>This is Navbar us...</p>
+            <h1>Signup</h1>
+            <p>This is Signup us...</p>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                 Tempore dolorum excepturi, pariatur dolore fuga perferendis 
                 mollitia deserunt a voluptas assumenda! Consequatur beatae qui 
@@ -14,4 +14,4 @@ const Navbar = () => {
     )
 }
 
-export default Navbar;
+export default Signup;
